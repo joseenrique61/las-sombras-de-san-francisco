@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private Rigidbody2D rb;
 	private PlayerInput input;
+	[SerializeField] private Candle candle;
 
 	private void Start()
 	{
@@ -25,4 +26,13 @@ public class PlayerMovement : MonoBehaviour
 	{
 		rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * movement); 
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("CandlePickUp"))
+        {
+			candle.ReactiveCandleLight();
+            Destroy(collision.gameObject);
+        }
+    }
 }

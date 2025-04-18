@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "HideInteraction",
+                    "type": "Button",
+                    "id": "e2eccc4b-8f3f-4e46-9b86-d4657aae48de",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NoHideInteraction",
+                    "type": "Button",
+                    "id": "51c51d9a-ba8f-4d40-91bb-92932283c04d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +88,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "50515013-0023-414d-bf23-ab9c810b7cde",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HideInteraction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2bdc65fc-a385-4e95-8aff-bb966714373b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NoHideInteraction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
