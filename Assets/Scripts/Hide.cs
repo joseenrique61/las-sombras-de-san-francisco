@@ -4,9 +4,12 @@ using UnityEngine.InputSystem;
 
 public class Hide : MonoBehaviour
 {
+	private GameObject visuals;
+	private GameObject candle;
+
 	private BoxCollider2D closetCollider;
 	private bool canHide = false;
-	private bool isHidden = false;
+	public bool IsHidden { get; private set; } = false;
 
 	private Vector2 originalPosition;
 	private PlayerInput input;
@@ -14,6 +17,8 @@ public class Hide : MonoBehaviour
 	public void Start()
 	{
 		input = GetComponent<PlayerInput>();
+		visuals = transform.Find("PlayerVisuals").gameObject;
+		candle = transform.Find("Candle").gameObject;
 	}
 
 	public void OnTriggerEnter2D(Collider2D collision)
@@ -41,20 +46,26 @@ public class Hide : MonoBehaviour
 			return;
 		}
 
-		if (canHide && !isHidden)
+		if (canHide && !IsHidden)
 		{
+			visuals.SetActive(false);
+			candle.SetActive(false);
+
 			input.actions["Move"].Disable();
 			closetCollider.enabled = false;
 			originalPosition = transform.position;
 			transform.position = closetCollider.transform.position;
-			isHidden = true;
+			IsHidden = true;
 		}
-		else if (isHidden)
+		else if (IsHidden)
 		{
+			visuals.SetActive(true);
+			candle.SetActive(true);
+
 			input.actions["Move"].Enable();
 			transform.position = originalPosition;
 			closetCollider.enabled = true;
-			isHidden = false;
+			IsHidden = false;
 		}
 	}
 }
