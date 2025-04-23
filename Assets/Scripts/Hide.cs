@@ -8,7 +8,6 @@ public class Hide : MonoBehaviour
 	private GameObject candle;
 
 	private BoxCollider2D closetCollider;
-	private bool canHide = false;
 	public bool IsHidden { get; private set; } = false;
 
 	private Vector2 originalPosition;
@@ -21,32 +20,21 @@ public class Hide : MonoBehaviour
 		candle = transform.Find("Candle").gameObject;
 	}
 
-	public void OnTriggerEnter2D(Collider2D collision)
+	public void SetCanHide(bool canHide, Collider2D collision)
 	{
-		if (collision.CompareTag("Closet"))
+		if (canHide)
 		{
-			canHide = true;
 			closetCollider = collision.GetComponents<BoxCollider2D>().FirstOrDefault(x => x.isTrigger == false);
 		}
-	}
-
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-		if (collision.CompareTag("Closet"))
+		else
 		{
-			canHide = false;
 			closetCollider = null;
 		}
 	}
 
-	public void AlternateHidden(InputAction.CallbackContext context)
+	public void AlternateHidden()
 	{
-		if (!context.performed)
-		{
-			return;
-		}
-
-		if (canHide && !IsHidden)
+		if (!IsHidden)
 		{
 			visuals.SetActive(false);
 			candle.SetActive(false);
