@@ -5,6 +5,7 @@ public class Candle : MonoBehaviour
 {
 	public float Duration = 10f;
 	[SerializeField] private float lightRadius = 6f;
+	[SerializeField] private float noiseScale = 1.7f;
 
 	public float TimeLeft { get; private set; }
 
@@ -22,6 +23,11 @@ public class Candle : MonoBehaviour
 		{
 			candleLight.pointLightOuterRadius = Mathf.Lerp(0, lightRadius, TimeLeft / Duration);
 			TimeLeft -= Time.deltaTime;
+
+			float t = Mathf.InverseLerp(0, 1, Mathf.PerlinNoise1D(Time.time * noiseScale));
+			float intensity = Mathf.Lerp(1, 1.75f, t);
+
+			candleLight.intensity = intensity;
 		}
 	}
 

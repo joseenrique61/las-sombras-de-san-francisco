@@ -371,8 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bfdf42a57ed1264183a1ecbaee0d701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
+  Duration: 10
   lightRadius: 6
+  noiseScale: 1.7
 --- !u!1 &4490053996684688155
 GameObject:
   m_ObjectHideFlags: 0
