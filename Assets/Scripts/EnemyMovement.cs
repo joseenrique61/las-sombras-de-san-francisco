@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering.Universal;
 
 public class EnemyMovement : MonoBehaviour
 {
 	[SerializeField] private Transform player;
+	[SerializeField] private Light2D candle;
 	[SerializeField] private float visionRange = 5f;
 
 	public List<Vector2> Route;
@@ -36,7 +38,10 @@ public class EnemyMovement : MonoBehaviour
 
 		if (chasingPlayer && !playerHideComponent.IsHidden)
 		{
-			agent.SetDestination(player.position);
+			Vector2 direction = player.position - transform.position;
+			Vector2 dest = new Vector2(player.position.x, player.position.y) - direction.normalized * candle.pointLightOuterRadius;
+
+			agent.SetDestination(dest);
 		}
 		else if (chasingPlayer && playerHideComponent.IsHidden)
 		{
