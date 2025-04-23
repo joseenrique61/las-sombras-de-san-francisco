@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Hide",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "e2eccc4b-8f3f-4e46-9b86-d4657aae48de",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Candle",
+                    "type": "Button",
+                    "id": "1023d854-c6d5-4980-a34e-ef62c83c1359",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -87,7 +96,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Hide",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7780ddc2-575a-4228-8323-88d63aaf9e48",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Candle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

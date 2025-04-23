@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4682740016549694444}
   - component: {fileID: 4284514177656612504}
-  - component: {fileID: 9059748849489737875}
   - component: {fileID: 7981094657110297640}
   - component: {fileID: 2506944853992963104}
+  - component: {fileID: 9059748849489737875}
+  - component: {fileID: 646416747488015869}
   - component: {fileID: 5275748796412954369}
   - component: {fileID: 1609491775484471606}
   m_Layer: 0
@@ -86,19 +87,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75166535, y: 0.39681798}
   m_EdgeRadius: 0
---- !u!114 &9059748849489737875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176707554440073380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad1a283120281e4991d857e530bc4d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!50 &7981094657110297640
 Rigidbody2D:
   serializedVersion: 4
@@ -157,9 +145,9 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5275748796412954369}
-        m_TargetAssemblyTypeName: Hide, Assembly-CSharp
-        m_MethodName: AlternateHidden
+      - m_Target: {fileID: 646416747488015869}
+        m_TargetAssemblyTypeName: InteractionManager, Assembly-CSharp
+        m_MethodName: Interact
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -171,11 +159,52 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e2eccc4b-8f3f-4e46-9b86-d4657aae48de
     m_ActionName: Player/HideInteraction[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1609491775484471606}
+        m_TargetAssemblyTypeName: CandlePickup, Assembly-CSharp
+        m_MethodName: SwitchLight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1023d854-c6d5-4980-a34e-ef62c83c1359
+    m_ActionName: Player/Candle[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &9059748849489737875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176707554440073380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad1a283120281e4991d857e530bc4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+--- !u!114 &646416747488015869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176707554440073380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b46aaec18b052043ae0619a3cedb5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5275748796412954369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee9a77d0b08a9a47819136268942f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visuals: {fileID: 547312189938414235}
 --- !u!114 &1609491775484471606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,8 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bfdf42a57ed1264183a1ecbaee0d701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
+  Duration: 10
   lightRadius: 6
+  noiseScale: 1.7
 --- !u!1 &4490053996684688155
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,31 +3,37 @@ using UnityEngine.Rendering.Universal;
 
 public class Candle : MonoBehaviour
 {
-	[SerializeField] private float duration = 10f;
+	public float Duration = 10f;
 	[SerializeField] private float lightRadius = 6f;
+	[SerializeField] private float noiseScale = 1.7f;
 
-	private float timer;
+	public float TimeLeft { get; private set; }
+
 	private Light2D candleLight;
 
 	void Start()
 	{
 		candleLight = GetComponent<Light2D>();
-		timer = duration;
+		TimeLeft = Duration;
 	}
 
 	void Update()
 	{
-		timer -= Time.deltaTime;
-		candleLight.pointLightOuterRadius = Mathf.Lerp(0, lightRadius, timer / duration);
-		if (timer <= 0)
+		if (TimeLeft > 0)
 		{
-			candleLight.enabled = false;
+			candleLight.pointLightOuterRadius = Mathf.Lerp(0, lightRadius, TimeLeft / Duration);
+			TimeLeft -= Time.deltaTime;
+
+			float t = Mathf.InverseLerp(0, 1, Mathf.PerlinNoise1D(Time.time * noiseScale));
+			float intensity = Mathf.Lerp(1, 1.75f, t);
+
+			candleLight.intensity = intensity;
 		}
 	}
 
 	public void RestartCandleLight()
 	{
-		timer = duration;
+		TimeLeft = Duration;
 		candleLight.enabled = true;
 	}
 }
