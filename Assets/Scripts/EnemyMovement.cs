@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
 	[SerializeField] private Light2D candle;
 	[SerializeField] private float visionRange = 5f;
 
+	[SerializeField, Range(0f, 1f)] private float marginToPlayer = 0.7f;
+
 	public List<Vector2> Route;
 	private int currentTarget = 0;
 
@@ -39,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
 		if (chasingPlayer && !playerHideComponent.IsHidden)
 		{
 			Vector2 direction = player.position - transform.position;
-			Vector2 dest = new Vector2(player.position.x, player.position.y) - direction.normalized * candle.pointLightOuterRadius;
+			Vector2 dest = new Vector2(player.position.x, player.position.y) - marginToPlayer * candle.pointLightOuterRadius * direction.normalized;
 
 			agent.SetDestination(dest);
 		}
