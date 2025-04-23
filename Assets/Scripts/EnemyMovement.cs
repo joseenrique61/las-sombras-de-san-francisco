@@ -8,8 +8,8 @@ public class EnemyMovement : MonoBehaviour
 	[SerializeField] private Transform player;
 	[SerializeField] private Light2D candle;
 	[SerializeField] private float visionRange = 5f;
-
 	[SerializeField, Range(0f, 1f)] private float marginToPlayer = 0.7f;
+	[SerializeField] private LevelLoader levelLoader;
 
 	public List<Vector2> Route;
 	private int currentTarget = 0;
@@ -64,5 +64,13 @@ public class EnemyMovement : MonoBehaviour
 	private int GetNextPatrolPoint()
 	{
 		return (currentTarget + 1) % Route.Count;
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			levelLoader.RestartLevel();
+		}
 	}
 }
