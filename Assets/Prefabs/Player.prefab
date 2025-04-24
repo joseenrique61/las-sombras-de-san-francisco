@@ -324,12 +324,12 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.6
   m_Color: {r: 0.96981126, g: 0.9405557, b: 0.43733, a: 1}
   m_Intensity: 1.75
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000006d7c5f9e
+  m_ApplyToSortingLayers: 000000006d7c5f9e43c3314f
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bfdf42a57ed1264183a1ecbaee0d701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 10
+  Duration: 15
   lightRadius: 6
   noiseScale: 1.7
 --- !u!1 &4490053996684688155

@@ -13,7 +13,6 @@ public class PlayerFootSteeps : MonoBehaviour
     {
         input = GetComponent<PlayerInput>();
         footSteepTimer = 0f;
-        footSteepDelay = 0.4f;
     }
 
     void Update()

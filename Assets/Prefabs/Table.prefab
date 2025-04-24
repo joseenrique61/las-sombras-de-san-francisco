@@ -167,7 +167,7 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 43c3314f000000006d7c5f9e1f62bb47dbd6e97c
   m_ShapePath:
   - {x: -0.5, y: 0, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
@@ -183,7 +183,7 @@ MonoBehaviour:
   - {x: -0.45326614, y: 0.00009202957, z: 0}
   m_ShapePathHash: 798292461
   m_Mesh: {fileID: 0}
-  m_InstanceId: -53586
+  m_InstanceId: 51878
   m_LocalBounds:
     m_Center: {x: 0, y: 0.24989665, z: 0}
     m_Extent: {x: 0.5, y: 0.25010335, z: 0}
@@ -253,19 +253,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8069549214218936677, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
       propertyPath: m_Size.x
-      value: 5.7827225
+      value: 7.974
       objectReference: {fileID: 0}
     - target: {fileID: 8069549214218936677, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
       propertyPath: m_Size.y
-      value: 5.842147
+      value: 6.2577343
       objectReference: {fileID: 0}
     - target: {fileID: 8069549214218936677, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
       propertyPath: m_Offset.x
-      value: 0.89136124
+      value: 0.6835675
       objectReference: {fileID: 0}
     - target: {fileID: 8069549214218936677, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
       propertyPath: m_Offset.y
-      value: -0.92107344
+      value: -1.1288671
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
