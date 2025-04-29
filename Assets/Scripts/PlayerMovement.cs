@@ -33,17 +33,20 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
 			{
+				// Right movement
 				if (movement.x > 0)
 				{
 					playerSprite.flipX = false;
 					candleSprite.flipX = true;
-					candle.transform.position = new Vector2(-0.15f, 0.225f);
+					candleSprite.transform.localPosition = new Vector3(-0.15f, 0.225f, 0f);
 				}
+
+				// Left movement
 				else
 				{
 					playerSprite.flipX = true;
 					candleSprite.flipX = false;
-					candle.transform.position = new Vector2(0.15f, 0.225f);
+					candleSprite.transform.localPosition = new Vector3(0.15f, 0.225f, 0f);
 				}
 					
 			}
