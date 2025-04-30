@@ -183,7 +183,7 @@ MonoBehaviour:
   - {x: -0.45326614, y: 0.00009202957, z: 0}
   m_ShapePathHash: 798292461
   m_Mesh: {fileID: 0}
-  m_InstanceId: 51878
+  m_InstanceId: -1464
   m_LocalBounds:
     m_Center: {x: 0, y: 0.24989665, z: 0}
     m_Extent: {x: 0.5, y: 0.25010335, z: 0}
@@ -195,6 +195,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 874890059523406191}
     m_Modifications:
+    - target: {fileID: 208458632755233533, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 833007772545445212, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.125
@@ -247,6 +251,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1014475994693304877, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PickupCandle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014475994693304877, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CandlePickup, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3250366131839621354, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
       propertyPath: m_Name
       value: CandlePickUp
@@ -270,8 +282,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3250366131839621354, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4557477146993507160}
   m_SourcePrefab: {fileID: 100100000, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
+--- !u!1 &5607149568430551368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3250366131839621354, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
+  m_PrefabInstance: {fileID: 6974675137367599522}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4557477146993507160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5607149568430551368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b84dbe5b45268e4ca5417cfd4484520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionPrompt: {fileID: 7075047331736202079}
+--- !u!1 &7075047331736202079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 208458632755233533, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
+  m_PrefabInstance: {fileID: 6974675137367599522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7729432819125880062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 833007772545445212, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}

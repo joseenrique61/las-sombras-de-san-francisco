@@ -10,7 +10,7 @@ public class Hide : MonoBehaviour
 	private BoxCollider2D closetCollider;
 	public bool IsHidden { get; private set; } = false;
 
-	private Vector2 originalPosition;
+    private Vector2 originalPosition;
 	private PlayerInput input;
 
 	public void Start()
@@ -24,6 +24,7 @@ public class Hide : MonoBehaviour
 	{
 		if (canHide)
 		{
+			Debug.Log("Se puede esconder");
 			closetCollider = collision.GetComponents<BoxCollider2D>().FirstOrDefault(x => x.isTrigger == false);
 		}
 		else
@@ -39,6 +40,8 @@ public class Hide : MonoBehaviour
 			visuals.SetActive(false);
 			candle.SetActive(false);
 
+			Debug.Log("Está escondido");
+
 			input.actions["Move"].Disable();
 			closetCollider.enabled = false;
 			originalPosition = transform.position;
@@ -49,6 +52,8 @@ public class Hide : MonoBehaviour
 		{
 			visuals.SetActive(true);
 			candle.SetActive(true);
+
+			Debug.Log("Se dejó de esconder");
 
 			input.actions["Move"].Enable();
 			transform.position = originalPosition;

@@ -30,32 +30,21 @@ public class PlayerMovement : MonoBehaviour
 		playerAnimator.SetFloat("movement",movement.magnitude * speed);
 
 		if (movement.magnitude > 0.1f)
-		{
-			if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+		{	
+			// Right movement
+			if (movement.x > 0)
 			{
-				// Right movement
-				if (movement.x > 0)
-				{
-					playerSprite.flipX = false;
-					candleSprite.flipX = true;
-					candleSprite.transform.localPosition = new Vector3(-0.15f, 0.225f, 0f);
-				}
-
-				// Left movement
-				else
-				{
-					playerSprite.flipX = true;
-					candleSprite.flipX = false;
-					candleSprite.transform.localPosition = new Vector3(0.15f, 0.225f, 0f);
-				}
-					
+				playerSprite.flipX = false;
+				candleSprite.flipX = true;
+				candleSprite.transform.localPosition = new Vector3(-0.15f, 0.225f, 0f);
 			}
+
+			// Left movement
 			else
 			{
-				if (movement.y > 0)
-					Debug.Log("Arriba");
-				else
-					Debug.Log("Abajo");
+				playerSprite.flipX = true;
+				candleSprite.flipX = false;
+				candleSprite.transform.localPosition = new Vector3(0.15f, 0.225f, 0f);
 			}
 		}
 	}
