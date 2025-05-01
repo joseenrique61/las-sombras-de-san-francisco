@@ -9,11 +9,9 @@ public class EnemyMovement : MonoBehaviour
 	[SerializeField] private Light2D candle;
 	[SerializeField] private float visionRange = 5f;
 	[SerializeField, Range(0f, 1f)] private float marginToPlayer = 0.7f;
-	[SerializeField] private LevelLoader levelLoader;
-
+	private LevelLoader levelLoader;
 	public List<Vector2> Route;
 	private int currentTarget = 0;
-
 	private Hide playerHideComponent;
 
 	private bool chasingPlayer = false;
@@ -29,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
 
 	void Start()
 	{
+		levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
 		playerHideComponent = player.GetComponent<Hide>();
 
 		agent.SetDestination(Route[currentTarget]);

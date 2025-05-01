@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5044733777356961713}
   - component: {fileID: 8564333540792729676}
   - component: {fileID: 1245440098791057292}
+  - component: {fileID: 257495619236586751}
   m_Layer: 0
   m_Name: Column
   m_TagString: Untagged
@@ -161,7 +162,23 @@ MonoBehaviour:
   - {x: 0.20923615, y: -0.0016605854, z: 0}
   m_ShapePathHash: -716540203
   m_Mesh: {fileID: 0}
-  m_InstanceId: -126418
+  m_InstanceId: -12712
   m_LocalBounds:
     m_Center: {x: 0.0009560585, y: 0.3157847, z: 0}
     m_Extent: {x: 0.49904394, y: 0.31744528, z: 0}
+--- !u!114 &257495619236586751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238908758992358119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
