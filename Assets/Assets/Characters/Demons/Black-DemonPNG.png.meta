@@ -100,7 +100,7 @@ TextureImporter:
       name: Black-DemonPNG_0
       rect:
         serializedVersion: 2
-        x: 258
+        x: 117
         y: 774
         width: 112
         height: 234
@@ -121,10 +121,10 @@ TextureImporter:
       name: Black-DemonPNG_1
       rect:
         serializedVersion: 2
-        x: 389
+        x: 258
         y: 774
         width: 112
-        height: 242
+        height: 234
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,10 +142,10 @@ TextureImporter:
       name: Black-DemonPNG_2
       rect:
         serializedVersion: 2
-        x: 520
-        y: 773
+        x: 389
+        y: 774
         width: 112
-        height: 235
+        height: 242
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: Black-DemonPNG_3
       rect:
         serializedVersion: 2
-        x: 644
-        y: 774
+        x: 520
+        y: 773
         width: 112
-        height: 242
+        height: 235
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,9 +184,9 @@ TextureImporter:
       name: Black-DemonPNG_4
       rect:
         serializedVersion: 2
-        x: 270
-        y: 517
-        width: 80
+        x: 644
+        y: 772
+        width: 112
         height: 242
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: Black-DemonPNG_5
       rect:
         serializedVersion: 2
-        x: 391
-        y: 517
-        width: 80
-        height: 242
+        x: 765
+        y: 780
+        width: 112
+        height: 234
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,10 +226,10 @@ TextureImporter:
       name: Black-DemonPNG_6
       rect:
         serializedVersion: 2
-        x: 512
-        y: 515
-        width: 80
-        height: 243
+        x: 888
+        y: 780
+        width: 112
+        height: 234
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,7 +247,7 @@ TextureImporter:
       name: Black-DemonPNG_7
       rect:
         serializedVersion: 2
-        x: 644
+        x: 270
         y: 517
         width: 80
         height: 242
@@ -268,10 +268,10 @@ TextureImporter:
       name: Black-DemonPNG_8
       rect:
         serializedVersion: 2
-        x: 274
-        y: 257
+        x: 391
+        y: 517
         width: 80
-        height: 243
+        height: 242
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,10 +289,10 @@ TextureImporter:
       name: Black-DemonPNG_9
       rect:
         serializedVersion: 2
-        x: 401
-        y: 259
+        x: 512
+        y: 515
         width: 80
-        height: 242
+        height: 243
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,10 +310,10 @@ TextureImporter:
       name: Black-DemonPNG_10
       rect:
         serializedVersion: 2
-        x: 528
-        y: 257
+        x: 644
+        y: 517
         width: 80
-        height: 243
+        height: 242
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,8 +331,8 @@ TextureImporter:
       name: Black-DemonPNG_11
       rect:
         serializedVersion: 2
-        x: 655
-        y: 257
+        x: 272
+        y: 259
         width: 80
         height: 243
       alignment: 7
@@ -352,10 +352,10 @@ TextureImporter:
       name: Black-DemonPNG_13
       rect:
         serializedVersion: 2
-        x: 387
-        y: 7
-        width: 112
-        height: 242
+        x: 528
+        y: 257
+        width: 80
+        height: 243
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,10 +373,10 @@ TextureImporter:
       name: Black-DemonPNG_14
       rect:
         serializedVersion: 2
-        x: 521
-        y: 15
-        width: 112
-        height: 234
+        x: 655
+        y: 257
+        width: 80
+        height: 243
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,10 +394,10 @@ TextureImporter:
       name: Black-DemonPNG_15
       rect:
         serializedVersion: 2
-        x: 654
-        y: 11
+        x: 254
+        y: 15
         width: 112
-        height: 242
+        height: 234
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,7 +415,49 @@ TextureImporter:
       name: Black-DemonPNG_12
       rect:
         serializedVersion: 2
-        x: 254
+        x: 403
+        y: 259
+        width: 80
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767a28ce1f0244443954fb2378e11f61
+      internalID: -940835150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Black-DemonPNG_16
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 7
+        width: 112
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: add8dc137f3290d4da05dc820c412b08
+      internalID: -1949827876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Black-DemonPNG_17
+      rect:
+        serializedVersion: 2
+        x: 521
         y: 15
         width: 112
         height: 234
@@ -426,8 +468,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 767a28ce1f0244443954fb2378e11f61
-      internalID: -940835150
+      spriteID: 4e7c3800cb6356840b69b2088129bc9e
+      internalID: 673163584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Black-DemonPNG_18
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 11
+        width: 112
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3ebf768d8174734cba302b07bca8b81
+      internalID: -2024860689
       vertices: []
       indices: 
       edges: []
@@ -451,6 +514,9 @@ TextureImporter:
       Black-DemonPNG_13: -606634618
       Black-DemonPNG_14: -409263254
       Black-DemonPNG_15: 1018228945
+      Black-DemonPNG_16: -1949827876
+      Black-DemonPNG_17: 673163584
+      Black-DemonPNG_18: -2024860689
       Black-DemonPNG_2: 829266552
       Black-DemonPNG_3: -127726484
       Black-DemonPNG_4: 136560522

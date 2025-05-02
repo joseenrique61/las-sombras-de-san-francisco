@@ -7,8 +7,12 @@ public class EnemyMovement : MonoBehaviour
 {
 	[SerializeField] private Transform player;
 	[SerializeField] private Light2D candle;
+	[SerializeField] private GameObject enemy;
 	[SerializeField] private float visionRange = 5f;
 	[SerializeField, Range(0f, 1f)] private float marginToPlayer = 0.7f;
+	private Animator enemyAnimator;
+	private SpriteRenderer enemySprite;
+	private Vector2 movement;
 	private LevelLoader levelLoader;
 	public List<Vector2> Route;
 	private int currentTarget = 0;
@@ -27,8 +31,11 @@ public class EnemyMovement : MonoBehaviour
 
 	void Start()
 	{
-		levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
+		enemySprite = enemy.GetComponent<SpriteRenderer>();
+		enemyAnimator = enemy.GetComponent<Animator>();
 		playerHideComponent = player.GetComponent<Hide>();
+
+		levelLoader = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
 
 		agent.SetDestination(Route[currentTarget]);
 	}
@@ -41,8 +48,8 @@ public class EnemyMovement : MonoBehaviour
 		{
 			Vector2 direction = player.position - transform.position;
 			Vector2 dest = new Vector2(player.position.x, player.position.y) - marginToPlayer * candle.pointLightOuterRadius * direction.normalized;
-
-			agent.SetDestination(dest);
+			
+			agent.SetDestination(dest);			
 		}
 		else if (chasingPlayer && playerHideComponent.IsHidden)
 		{
@@ -58,6 +65,11 @@ public class EnemyMovement : MonoBehaviour
 		{
 			agent.SetDestination(Route[currentTarget]);
 		}
+
+		movement = (agent.transform.position - agent.destination).normalized;
+
+		enemyAnimator.SetFloat("MovementX",movement.x);
+		enemyAnimator.SetFloat("MovementY",movement.y);		
 	}
 
 	private int GetNextPatrolPoint()
