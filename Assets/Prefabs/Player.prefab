@@ -175,6 +175,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1023d854-c6d5-4980-a34e-ef62c83c1359
     m_ActionName: Player/Candle[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e7401c1d-f459-4664-a901-b4637b54184e
+    m_ActionName: Player/Options[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -629,7 +633,7 @@ AudioSource:
   m_GameObject: {fileID: 7404697026994804331}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5336451688812000701, guid: 294f30483526d2b40a5ea2c6aa8ba0b4, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8b629e345de09bb4c829645bf4b1440d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -706,7 +710,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
