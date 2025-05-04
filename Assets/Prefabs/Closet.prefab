@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 7222395514188876284}
   - component: {fileID: 2734082896806384488}
   - component: {fileID: 2925986066562940500}
+  - component: {fileID: 252606653631196230}
+  - component: {fileID: 6073943151778304727}
   m_Layer: 0
   m_Name: Closet
   m_TagString: Closet
@@ -198,7 +200,7 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
-  m_ApplyToSortingLayers: 43c3314f000000006d7c5f9e1f62bb47dbd6e97c
+  m_ApplyToSortingLayers: 43c3314f
   m_ShapePath:
   - {x: -0.49923837, y: 0.09759593, z: 0}
   - {x: -0.5066619, y: 1.0082417, z: 0}
@@ -206,7 +208,7 @@ MonoBehaviour:
   - {x: 0.49186254, y: 0.09759593, z: 0}
   m_ShapePathHash: -1768178927
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34530
+  m_InstanceId: -1546
   m_LocalBounds:
     m_Center: {x: -0.006250024, y: 0.55321074, z: 0}
     m_Extent: {x: 0.50041187, y: 0.4556148, z: 0}
@@ -239,6 +241,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionPrompt: {fileID: 1553299896141141327}
+--- !u!95 &252606653631196230
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914831198294113586}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c25369deb707a24aa089bffca94cc6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6073943151778304727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914831198294113586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a742fcc5448368441a92878363cdac1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1553299896141141327
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +301,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553299896141141327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.04550796}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

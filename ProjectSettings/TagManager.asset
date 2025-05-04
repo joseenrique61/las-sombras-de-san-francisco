@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CandlePickUp
   - Closet
+  - WorldItem
+  - LockedDoor
+  - PickupItem
   layers:
   - Default
   - TransparentFX
