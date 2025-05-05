@@ -221,10 +221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  candle: {fileID: 0}
   enemy: {fileID: 3012382549637425271}
   visionRange: 5
-  marginToPlayer: 0.7
+  marginToPlayer: 0.5
   Route:
   - {x: -6, y: 19}
   - {x: 5, y: 17}

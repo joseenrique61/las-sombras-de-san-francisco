@@ -10,7 +10,7 @@ namespace Inventory
     {
 
         [Header("UI Settings")]
-        [SerializeField] private GameObject InventoryPanel;
+        //[SerializeField] private GameObject InventoryPanel;
         [SerializeField] private List<Image> uiSlots;
         public List<ItemData> inventoryItems = new List<ItemData>();
         public UnityEvent onInventoryChanged;
@@ -70,7 +70,6 @@ namespace Inventory
         {
             onInventoryChanged.AddListener(UpdateInventoryUI);
             UpdateInventoryUI();
-            if(InventoryPanel != null) InventoryPanel.SetActive(false);
         }
 
         void UpdateInventoryUI()
@@ -96,14 +95,6 @@ namespace Inventory
         }
 
         // Método para mostrar/ocultar el inventario (puedes llamarlo con un botón)
-        public void ToggleInventoryPanel(InputAction.CallbackContext callbackContext)
-        {
-            if (!callbackContext.started) return;
 
-            if(InventoryPanel != null)
-            {
-                InventoryPanel.SetActive(!InventoryPanel.activeSelf);
-            }
-        }
     }
 }

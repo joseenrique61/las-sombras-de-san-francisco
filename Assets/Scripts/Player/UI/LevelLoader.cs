@@ -16,7 +16,18 @@ namespace Player.UI
 
         public void RestartLevel()
         {
-            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
+        }
+
+        public void GoToMainMenu()
+        {
+            StartCoroutine(LoadLevel(0));
+        }
+
+        public void ExitGame()
+        {
+            Debug.Log("The game has been quited...");
+            Application.Quit();
         }
 
         private IEnumerator LoadLevel(int levelId)
@@ -26,6 +37,15 @@ namespace Player.UI
             yield return new WaitForSeconds(animationTime);
 
             SceneManager.LoadScene(levelId);
+        }
+
+        private IEnumerator LoadLevel(string nameScene)
+        {
+            animator.SetTrigger("Activate");
+
+            yield return new WaitForSeconds(animationTime);
+
+            SceneManager.LoadScene(nameScene);
         }
     }
 }

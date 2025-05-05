@@ -1,0 +1,129 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Audio;
+using TMPro;
+
+namespace UI
+{
+    public class UIManager : MonoBehaviour
+    {
+        [Header("UI Settings")]
+        [SerializeField] private AudioMixer audioMixer;
+        [SerializeField] private GameObject GameMenuPanel;
+        [SerializeField] private GameObject InventoryPanel;
+        private TMP_Dropdown resolutionDropdown;
+        private Resolution[] resolutions;
+        private bool PausedGameplay;
+        public void PauseGameplay()
+        {
+            PausedGameplay = true;
+            Time.timeScale = 0f;
+        }
+
+        public void ContinueGameplay()
+        {
+            PausedGameplay = false;
+            Time.timeScale = 1f;
+        }
+
+        public void ToggleMenuPanel(InputAction.CallbackContext callbackContext)
+        {
+            if (!callbackContext.started) return;
+
+            if(GameMenuPanel != null && PausedGameplay==false)
+            {
+                Debug.Log("The game has been paused");
+                PauseGameplay();
+                GameMenuPanel.SetActive(!GameMenuPanel.activeSelf);
+                return;
+            }
+            
+            if(GameMenuPanel != null && PausedGameplay==true)
+            {
+                Debug.Log("The game has been reanuded");
+                ContinueGameplay();
+                GameMenuPanel.SetActive(!GameMenuPanel.activeSelf);
+                return;
+            }
+        }
+
+        public void ToggleInventoryPanel(InputAction.CallbackContext callbackContext)
+        {
+            if (!callbackContext.started) return;
+
+            if(InventoryPanel != null)
+            {
+                InventoryPanel.SetActive(!InventoryPanel.activeSelf);
+            }
+        }
+
+        public void ToggleMenuPanel()
+        {
+            if(GameMenuPanel != null)
+            {
+                GameMenuPanel.SetActive(!GameMenuPanel.activeSelf);
+            }
+        }
+
+        public void ToggleInventoryPanel()
+        {
+            if(InventoryPanel != null)
+            {
+                InventoryPanel.SetActive(!InventoryPanel.activeSelf);
+            }
+        }
+
+        void Start()
+        {
+            if(InventoryPanel != null) 
+                InventoryPanel.SetActive(false);
+
+            if(GameMenuPanel != null) 
+                GameMenuPanel.SetActive(false);            
+
+            resolutions = Screen.resolutions;
+            List<string> options = new List<string>();
+
+            int currentResolutionIndex = 0;
+            for (int i = 0; i < resolutions.Length; i++)
+            {
+                string option = resolutions[i].width + " x " + resolutions[i].height;
+                options.Add(option);
+
+                if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+                {
+                    currentResolutionIndex = i;
+                }
+            }
+
+            if (GameMenuPanel!=null)
+                resolutionDropdown = GameMenuPanel.transform.Find("OptionsMenu/ResolutionDropDown").GetComponent<TMP_Dropdown>();
+            else
+                Debug.Log("Error en la asignación de PausePanel");
+
+            resolutionDropdown.ClearOptions();
+            resolutionDropdown.AddOptions(options);
+            resolutionDropdown.value = currentResolutionIndex;
+            resolutionDropdown.RefreshShownValue();
+
+            PausedGameplay = false;
+        }
+
+        public void SetResolution(int resolutionIndex)
+        {
+            Resolution resolution = resolutions[resolutionIndex];
+            Screen.SetResolution(resolution.width,resolution.height,Screen.fullScreen);
+        }
+        public void ChangeVolume(float volume)
+        {
+            audioMixer.SetFloat("VolumeParameter",volume);
+        }
+
+        public void EnterFullScreen()
+        {
+            Screen.fullScreen = true;
+        }
+    }
+}
