@@ -221,8 +221,6 @@ GameObject:
   - component: {fileID: 2436404148563630022}
   - component: {fileID: 1218598035029338813}
   - component: {fileID: 485319634888726228}
-  - component: {fileID: 2450019040704912873}
-  - component: {fileID: 5867866702329693026}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -246,6 +244,7 @@ Transform:
   - {fileID: 6457657685188727409}
   - {fileID: 6912756778874178436}
   - {fileID: 8319827441524189438}
+  - {fileID: 426991247000818468}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7878229822017553429
@@ -383,8 +382,8 @@ MonoBehaviour:
     m_ActionName: Player/Candle[/Keyboard/f]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2450019040704912873}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI.UIManager, Assembly-CSharp
         m_MethodName: ToggleMenuPanel
         m_Mode: 0
         m_Arguments:
@@ -399,10 +398,10 @@ MonoBehaviour:
     m_ActionName: Player/Options[/Keyboard/p]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2450019040704912873}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UI.UIManager, Assembly-CSharp
         m_MethodName: ToggleInventoryPanel
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -470,6 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candle: {fileID: 1380328454879276200}
+  isCandleLightOn: 1
 --- !u!114 &485319634888726228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,38 +492,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df0f02816989a0348b801669beb67362, type: 3}
   - {fileID: 8300000, guid: 90f0af26cb589f64eaae4a27d022a1d3, type: 3}
   - {fileID: 8300000, guid: 8ce4499bbd5a13e408937e979191ac28, type: 3}
---- !u!114 &2450019040704912873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006676334697060320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c64d6a18132834abcb927f0379d1b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 294f30483526d2b40a5ea2c6aa8ba0b4, type: 2}
-  GameMenuPanel: {fileID: 0}
-  InventoryPanel: {fileID: 0}
---- !u!114 &5867866702329693026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006676334697060320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 479fe09ab6d8d9a4eab662ba5bc18f9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiSlots: []
-  inventoryItems: []
-  onInventoryChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1057636753170118828
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,3 +878,47 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!1 &9096361098994062186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426991247000818468}
+  - component: {fileID: 5164038761093701688}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &426991247000818468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096361098994062186}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4859537255839411422}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5164038761093701688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9096361098994062186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479fe09ab6d8d9a4eab662ba5bc18f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

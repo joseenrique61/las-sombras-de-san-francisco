@@ -28,7 +28,7 @@ namespace Interactions
 		{
 			currentCloset = GetComponent<Hide>();
 			currentCandleLight = GetComponent<LightOnCandle>();
-			if (InventoryManager.Instance == null) {
+			if (InventorySystem.Instance == null) {
 				Debug.LogError("¡Falta InventoryManager en la escena o en el jugador!");
 			}
 		}
@@ -140,13 +140,11 @@ namespace Interactions
 					case InteractionType.PickUpItem:
 						if (currentWorldItem != null)
 						{
-							if (InventoryManager.Instance.AddItem(currentWorldItem.itemData))
-							{
-								Debug.Log($"Recogido {currentWorldItem.itemData.displayName} mediante interacción.");
-								currentWorldItem.PickUpItem();
-								currentInteractionPossibily = InteractionType.None;
-								currentWorldItem = null;
-							} 
+							InventorySystem.Instance.AddItem(currentWorldItem.itemData);
+							Debug.Log($"Recogido {currentWorldItem.itemData.displayName} mediante interacción.");
+							currentWorldItem.PickUpItem();
+							currentInteractionPossibily = InteractionType.None;
+							currentWorldItem = null;
 						}
 						break;
 					case InteractionType.OpenDoor:
@@ -156,10 +154,6 @@ namespace Interactions
 							Debug.Log("Puerta abierta");
 							currentInteractionPossibily = InteractionType.None;
 						}
-							
-						//interactionPrompt?.HidePrompt();
-						//	interactionPrompt = null;
-						//	currentLockedDoor = null; // Ojo: si quieres poder cerrarla, no limpies esto.
 						break;
 					default:
 						break;

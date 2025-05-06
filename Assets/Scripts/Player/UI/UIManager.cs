@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -61,9 +60,20 @@ namespace UI
 
         public void ToggleMenuPanel()
         {
-            if(GameMenuPanel != null)
+            if(GameMenuPanel != null && PausedGameplay==false)
             {
+                Debug.Log("The game has been paused");
+                PauseGameplay();
                 GameMenuPanel.SetActive(!GameMenuPanel.activeSelf);
+                return;
+            }
+            
+            if(GameMenuPanel != null && PausedGameplay==true)
+            {
+                Debug.Log("The game has been reanuded");
+                ContinueGameplay();
+                GameMenuPanel.SetActive(!GameMenuPanel.activeSelf);
+                return;
             }
         }
 

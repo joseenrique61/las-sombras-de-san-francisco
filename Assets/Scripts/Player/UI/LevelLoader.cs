@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Inventory;
 
 namespace Player.UI
 {
@@ -16,7 +17,7 @@ namespace Player.UI
 
         public void RestartLevel()
         {
-            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
         }
 
         public void GoToMainMenu()
@@ -37,15 +38,6 @@ namespace Player.UI
             yield return new WaitForSeconds(animationTime);
 
             SceneManager.LoadScene(levelId);
-        }
-
-        private IEnumerator LoadLevel(string nameScene)
-        {
-            animator.SetTrigger("Activate");
-
-            yield return new WaitForSeconds(animationTime);
-
-            SceneManager.LoadScene(nameScene);
         }
     }
 }

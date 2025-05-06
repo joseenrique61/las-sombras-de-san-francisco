@@ -33,14 +33,14 @@ namespace Interactions
                 return;
             }
 
-            if (InventoryManager.Instance != null && InventoryManager.Instance.HasItem(requiredItemID))
+            if (InventorySystem.Instance != null && InventorySystem.Instance.HasItem(requiredItemID))
             {
                 Debug.Log($"Abriendo puerta con {requiredItemID}.");
                 isOpen = true;
 
                 if (consumeItem)
                 {
-                    InventoryManager.Instance.RemoveItem(requiredItemID);
+                    InventorySystem.Instance.RemoveItemById(requiredItemID);
                 }
 
                 // Aquí podrías también notificar a InteractionManager que la interacción fue exitosa

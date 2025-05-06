@@ -8,7 +8,6 @@ namespace Player.Actions
 	{
 		[SerializeField] private Candle candle;
 		private GameObject candleToPickup;
-
 		public void SwitchLight(InputAction.CallbackContext callbackContext)
 		{
 			if (!callbackContext.started)
