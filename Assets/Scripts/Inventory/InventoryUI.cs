@@ -6,52 +6,38 @@ namespace Inventory
 {
     public class InventoryUIController : MonoBehaviour
     {
-        [Header("UI Settings")]
-        [SerializeField] private List<Image> uiSlots;
-
+        public GameObject itemSlotPrefab;
         private void Start()
         {
-            
+            InventorySystem.Instance.OnInventoryChangedEventCallBack += OnUpdateInventory;
         }
 
-        private void OnDestroy()
+        public void OnUpdateInventory()
         {
-          
-        }
-
-        void UpdateInventoryUI()
-        {
-            if (InventorySystem.Instance == null)
+            foreach (Transform t in transform)
             {
-                Debug.LogError("Intentando actualizar UI pero InventoryManager.Instance es null.");
-                return;
-            }
-            
-            /*List<ItemData> inventoryItems = InventorySystem.Instance.inventoryItems;
-
-            if (uiSlots == null || uiSlots.Count == 0)
-            {
-                Debug.LogWarning("uiSlots no asignado o vacío en InventoryUIController.");
-                return;
+                Destroy(t.transform.gameObject);
             }
 
-            for (int i = 0; i < uiSlots.Count; i++)
-            {
-                if (uiSlots[i] == null) continue;
-
-                if (i < inventoryItems.Count && inventoryItems[i] != null)
-                {
-                    uiSlots[i].sprite = inventoryItems[i].icon;
-                    uiSlots[i].enabled = true;
-                    uiSlots[i].color = Color.white;
-                }
-                else
-                {
-                    uiSlots[i].sprite = null; // Poner sprite transparente o por defecto es mejor
-                    uiSlots[i].enabled = true; // Mantener visible pero vacío
-                }
-            }*/
-            Debug.Log("Inventory UI actualizada.");
+            DrawInventory();
         }
+        
+        public void DrawInventory()
+        {
+            foreach (InventoryItem item in InventorySystem.Instance.inventoryItems)
+            {
+                AddInventorySlot(item);
+            }
+        }
+
+        public void AddInventorySlot(InventoryItem item)
+        {
+            GameObject obj = Instantiate(itemSlotPrefab);
+            obj.transform.SetParent(transform, false);
+
+            ItemSlot slot = obj.GetComponent<ItemSlot>();
+            slot.Set(item);
+        }
+        
     }
 }

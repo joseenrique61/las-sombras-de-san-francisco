@@ -14,6 +14,8 @@ namespace Inventory
         {
             if (data.stackable)
                 stackSize++;
+            else 
+                stackSize = 1;
         }
 
         public void RemoveFromStack()

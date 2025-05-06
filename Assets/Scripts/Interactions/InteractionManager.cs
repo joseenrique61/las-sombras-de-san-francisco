@@ -141,7 +141,6 @@ namespace Interactions
 						if (currentWorldItem != null)
 						{
 							InventorySystem.Instance.AddItem(currentWorldItem.itemData);
-							Debug.Log($"Recogido {currentWorldItem.itemData.displayName} mediante interacción.");
 							currentWorldItem.PickUpItem();
 							currentInteractionPossibily = InteractionType.None;
 							currentWorldItem = null;

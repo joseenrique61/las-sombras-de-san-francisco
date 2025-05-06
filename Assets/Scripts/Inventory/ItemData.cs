@@ -10,7 +10,7 @@ namespace Inventory
         public string displayName = "New Item";
         public string description = "Item Description";
         public Sprite icon;
-        //[SerializeField] public GameObject itemPrefab;
+        //public GameObject itemPrefab;
 
         [Header("Gameplay")]
         public bool stackable = false;

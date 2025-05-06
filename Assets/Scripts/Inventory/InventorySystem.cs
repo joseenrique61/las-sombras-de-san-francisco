@@ -9,6 +9,10 @@ namespace Inventory
         private Dictionary<ItemData, InventoryItem> _itemDictionary;
         public List<InventoryItem> inventoryItems;
         public static InventorySystem Instance;
+
+        public delegate void OnInventoryChangedEvent();
+        public event OnInventoryChangedEvent OnInventoryChangedEventCallBack;
+        
         public void Awake()
         {
             inventoryItems = new List<InventoryItem>();
@@ -18,18 +22,27 @@ namespace Inventory
 
          public void AddItem (ItemData itemToAdd){
             if (itemToAdd==null)
+            {
+                Debug.LogError($"There is no an valid object");
                 return;
+            }
 
-            if (!_itemDictionary.TryGetValue(itemToAdd, out InventoryItem value))
+
+            if (_itemDictionary.TryGetValue(itemToAdd, out InventoryItem value))
+            {
+                value.AddStack();
+                OnInventoryChangedEventCallBack.Invoke();
+                Debug.Log($"Adding a new item to the Inventory with name {value.data.displayName} and quantity: {value.stackSize}");
+            }
+            else
             {
                 InventoryItem newItem = new InventoryItem(itemToAdd);
                 inventoryItems.Add(newItem);
                 _itemDictionary.Add(itemToAdd,newItem);
+                Debug.Log($"Adding a new item to the Inventory with name {newItem.data.displayName} and quantity: {newItem.stackSize}");
+                OnInventoryChangedEventCallBack.Invoke();
             }
-            else
-            {
-                value.AddStack();
-            }
+
         }
 
         public void RemoveItem (ItemData itemToRemove){
@@ -43,6 +56,7 @@ namespace Inventory
                 {
                     inventoryItems.Remove(value);
                     _itemDictionary.Remove(itemToRemove);
+                    OnInventoryChangedEventCallBack.Invoke();
                 }
             }
         }

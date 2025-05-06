@@ -16,7 +16,6 @@ MonoBehaviour:
   displayName: Gray Key
   description: This key it's useful for open doors
   icon: {fileID: -191343849, guid: cb02f8e667837614589b55765e56d43b, type: 3}
-  itemPrefab: {fileID: 0}
   stackable: 0
   usable: 1
-  keyItem: 1
+  keyItem: 0
