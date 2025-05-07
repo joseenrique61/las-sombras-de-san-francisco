@@ -12,9 +12,11 @@ namespace UI
 
         public void Start()
         {
+            if(GamePanel != null) 
+                GamePanel.SetActive(false);
             PausedGameplay = false;
         }
-        
+
         public void PauseGameplay()
         {
             PausedGameplay = true;
@@ -28,7 +30,7 @@ namespace UI
         }
         public void TogglePanel()
         {
-            if (shouldStopGamePlay){
+            if (shouldStopGamePlay == true){
                 if(GamePanel != null && PausedGameplay==false)
                 {
                     Debug.Log("The game has been paused");
@@ -57,7 +59,9 @@ namespace UI
 
         public void TogglePanel(InputAction.CallbackContext callbackContext)
         {
-            if (shouldStopGamePlay){
+            if (!callbackContext.started) return;
+
+            if (shouldStopGamePlay == true){
                 if(GamePanel != null && PausedGameplay==false)
                 {
                     Debug.Log("The game has been paused");
