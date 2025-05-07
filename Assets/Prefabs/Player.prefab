@@ -383,8 +383,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI.UIManager, Assembly-CSharp
-        m_MethodName: ToggleMenuPanel
+        m_TargetAssemblyTypeName: UI.PanelUI, Assembly-CSharp
+        m_MethodName: TogglePanel
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -399,8 +399,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI.UIManager, Assembly-CSharp
-        m_MethodName: ToggleInventoryPanel
+        m_TargetAssemblyTypeName: UI.PanelUI, Assembly-CSharp
+        m_MethodName: TogglePanel
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -469,7 +469,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candle: {fileID: 1380328454879276200}
-  isCandleLightOn: 1
 --- !u!114 &485319634888726228
 MonoBehaviour:
   m_ObjectHideFlags: 0

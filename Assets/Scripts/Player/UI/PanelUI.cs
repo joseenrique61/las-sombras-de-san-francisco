@@ -6,52 +6,59 @@ namespace UI
     public class PanelUI : MonoBehaviour
     {
         [Header("UI Settings")]
-        [SerializeField] GameObject GamePanel;
+        [SerializeField] bool shouldBeActive;
         [SerializeField] bool shouldStopGamePlay;
-        private bool PausedGameplay;
+        private GameObject gamePanel;
+        private bool pausedGameplay;
 
         public void Start()
         {
-            if(GamePanel != null) 
-                GamePanel.SetActive(false);
-            PausedGameplay = false;
+            gamePanel = gameObject;
+
+            if (gamePanel != null)
+            {
+                if (shouldBeActive) gamePanel.SetActive(true);
+                else gamePanel.SetActive(false);
+            }
+            
+            pausedGameplay = false;
         }
 
         public void PauseGameplay()
         {
-            PausedGameplay = true;
+            pausedGameplay = true;
             Time.timeScale = 0f;
         }
 
         public void ContinueGameplay()
         {
-            PausedGameplay = false;
+            pausedGameplay = false;
             Time.timeScale = 1f;
         }
         public void TogglePanel()
         {
-            if (shouldStopGamePlay == true){
-                if(GamePanel != null && PausedGameplay==false)
+            if (shouldStopGamePlay){
+                if(gamePanel != null && !pausedGameplay)
                 {
                     Debug.Log("The game has been paused");
                     PauseGameplay();
-                    GamePanel.SetActive(!GamePanel.activeSelf);
+                    gamePanel.SetActive(!gamePanel.activeSelf);
                     return;
                 }
                 
-                if(GamePanel != null && PausedGameplay==true)
+                if(gamePanel != null && pausedGameplay)
                 {
                     Debug.Log("The game has been reanuded");
                     ContinueGameplay();
-                    GamePanel.SetActive(!GamePanel.activeSelf);
+                    gamePanel.SetActive(!gamePanel.activeSelf);
                     return;
                 }
             }
             else
             {
-                if(GamePanel != null)
+                if(gamePanel != null)
                 {
-                    GamePanel.SetActive(!GamePanel.activeSelf);
+                    gamePanel.SetActive(!gamePanel.activeSelf);
                     return;
                 }
             }
@@ -61,28 +68,28 @@ namespace UI
         {
             if (!callbackContext.started) return;
 
-            if (shouldStopGamePlay == true){
-                if(GamePanel != null && PausedGameplay==false)
+            if (shouldStopGamePlay){
+                if(gamePanel != null && !pausedGameplay)
                 {
                     Debug.Log("The game has been paused");
                     PauseGameplay();
-                    GamePanel.SetActive(!GamePanel.activeSelf);
+                    gamePanel.SetActive(!gamePanel.activeSelf);
                     return;
                 }
                 
-                if(GamePanel != null && PausedGameplay==true)
+                if(gamePanel != null && pausedGameplay)
                 {
                     Debug.Log("The game has been reanuded");
                     ContinueGameplay();
-                    GamePanel.SetActive(!GamePanel.activeSelf);
+                    gamePanel.SetActive(!gamePanel.activeSelf);
                     return;
                 }
             }
             else
             {
-                if(GamePanel != null)
+                if(gamePanel != null)
                 {
-                    GamePanel.SetActive(!GamePanel.activeSelf);
+                    gamePanel.SetActive(!gamePanel.activeSelf);
                     return;
                 }
             }

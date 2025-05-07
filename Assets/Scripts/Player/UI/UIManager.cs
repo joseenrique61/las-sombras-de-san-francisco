@@ -86,9 +86,6 @@ namespace UI
         
         void Start()
         {
-            /*if(GameMenuPanel != null) 
-                GameMenuPanel.SetActive(false);            */
-
             resolutions = Screen.resolutions;
             List<string> options = new List<string>();
 
@@ -104,7 +101,6 @@ namespace UI
                 }
             }
 
-//            resolutionDropdown = GameObject.Find("GameMenuPanel/OptionsMenu/ResolutionDropDown").GetComponent<TMP_Dropdown>();
             resolutionDropdown.ClearOptions();
             resolutionDropdown.AddOptions(options);
             resolutionDropdown.value = currentResolutionIndex;
