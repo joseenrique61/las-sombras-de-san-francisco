@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Audio;
 using TMPro;
 
@@ -10,10 +9,10 @@ namespace UI
     {
         [Header("UI Settings")]
         [SerializeField] private AudioMixer audioMixer;
-        [SerializeField] private GameObject GameMenuPanel;
-        [SerializeField] private GameObject InventoryPanel;
-        private TMP_Dropdown resolutionDropdown;
+        //[SerializeField] private GameObject GameMenuPanel;
+        [SerializeField] private TMP_Dropdown resolutionDropdown;
         private Resolution[] resolutions;
+        /*
         private bool PausedGameplay;
         public void PauseGameplay()
         {
@@ -21,11 +20,7 @@ namespace UI
             Time.timeScale = 0f;
         }
 
-        public void ContinueGameplay()
-        {
-            PausedGameplay = false;
-            Time.timeScale = 1f;
-        }
+        
 
         public void ToggleMenuPanel(InputAction.CallbackContext callbackContext)
         {
@@ -83,15 +78,16 @@ namespace UI
             {
                 InventoryPanel.SetActive(!InventoryPanel.activeSelf);
             }
+        }*/
+        public void ContinueGameplay()
+        {
+            Time.timeScale = 1f;
         }
-
+        
         void Start()
         {
-            if(InventoryPanel != null) 
-                InventoryPanel.SetActive(false);
-
-            if(GameMenuPanel != null) 
-                GameMenuPanel.SetActive(false);            
+            /*if(GameMenuPanel != null) 
+                GameMenuPanel.SetActive(false);            */
 
             resolutions = Screen.resolutions;
             List<string> options = new List<string>();
@@ -108,17 +104,11 @@ namespace UI
                 }
             }
 
-            if (GameMenuPanel!=null)
-                resolutionDropdown = GameMenuPanel.transform.Find("OptionsMenu/ResolutionDropDown").GetComponent<TMP_Dropdown>();
-            else
-                Debug.Log("Error en la asignación de PausePanel");
-
+//            resolutionDropdown = GameObject.Find("GameMenuPanel/OptionsMenu/ResolutionDropDown").GetComponent<TMP_Dropdown>();
             resolutionDropdown.ClearOptions();
             resolutionDropdown.AddOptions(options);
             resolutionDropdown.value = currentResolutionIndex;
             resolutionDropdown.RefreshShownValue();
-
-            PausedGameplay = false;
         }
 
         public void SetResolution(int resolutionIndex)

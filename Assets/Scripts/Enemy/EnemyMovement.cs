@@ -14,12 +14,12 @@ namespace Enemy
 		[SerializeField] private GameObject enemy;
 		[SerializeField] private float visionRange = 5f;
 		[SerializeField, Range(0f, 1f)] private float marginToPlayer = 0.7f;
+		[SerializeField] private List<Vector2> Route;
 		private LevelLoader levelLoader;
 		private Light2D playerCandle;
 		private Hide playerHideComponent;
 		private Transform playerTransform;
 		private Animator enemyAnimator;
-		public List<Vector2> Route;
 		private int currentTarget = 0;
 		private bool chasingPlayer = false;
 		private NavMeshAgent agent;
@@ -44,7 +44,7 @@ namespace Enemy
 		private void Update()
 		{
 			chasingPlayer = Vector2.Distance(transform.position, playerTransform.position) < visionRange;
-
+			
 			if (chasingPlayer && !playerHideComponent.IsHidden && playerCandle.isActiveAndEnabled)
 			{
 				Vector2 direction = playerTransform.position - transform.position;
