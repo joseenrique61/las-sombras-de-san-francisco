@@ -9,6 +9,7 @@ TagManager:
   - WorldItem
   - LockedDoor
   - PickupItem
+  - PlayerCandle
   layers:
   - Default
   - TransparentFX

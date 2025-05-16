@@ -2,22 +2,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
-using Player.Actions;
 using Player.UI;
-using Player.Items;
-using UnityEngine.SceneManagement;
+using Player;
+
 namespace Enemy
 {
 	public class EnemyMovement : MonoBehaviour
 	{
-		[SerializeField] private GameObject player;
-		[SerializeField] private GameObject enemy;
 		[SerializeField] private float visionRange = 5f;
 		[SerializeField, Range(0f, 1f)] private float marginToPlayer = 0.7f;
 		[SerializeField] private List<Vector2> Route;
+		private GameObject player;
 		private LevelLoader levelLoader;
 		private Light2D playerCandle;
-		private Hide playerHideComponent;
+		private PlayerController playerController;
 		private Transform playerTransform;
 		private Animator enemyAnimator;
 		private int currentTarget = 0;
@@ -31,11 +29,12 @@ namespace Enemy
 		}
 		void Start()
 		{
-			playerCandle = player.transform.Find("Candle").GetComponent<Light2D>();
+			player = GameObject.FindWithTag("Player");
+			playerCandle = GameObject.FindWithTag("PlayerCandle").GetComponent<Light2D>();
 			playerTransform = player.GetComponent<Transform>();
-			playerHideComponent = player.GetComponent<Hide>();
+			playerController = player.GetComponent<PlayerController>();
 
-			enemyAnimator = enemy.GetComponent<Animator>();
+			enemyAnimator = GetComponent<Animator>();
 			levelLoader = GameObject.Find("ElementsUI").GetComponent<LevelLoader>();
 
 			agent.SetDestination(Route[currentTarget]);
@@ -45,21 +44,14 @@ namespace Enemy
 		{
 			chasingPlayer = Vector2.Distance(transform.position, playerTransform.position) < visionRange;
 			
-			if (chasingPlayer && !playerHideComponent.IsHidden && playerCandle.isActiveAndEnabled)
+			if (chasingPlayer && !playerController.isHidden)
 			{
 				Vector2 direction = playerTransform.position - transform.position;
-				Vector2 dest = new Vector2(playerTransform.position.x, playerTransform.position.y) - marginToPlayer * playerCandle.pointLightOuterRadius * direction.normalized;
+				Vector2 dest = new Vector2(playerTransform.position.x, playerTransform.position.y) - marginToPlayer * (playerCandle.gameObject.activeSelf ? playerCandle.pointLightOuterRadius : 0.01f) * direction.normalized;
 				
 				agent.SetDestination(dest);			
 			}
-			else if (chasingPlayer && !playerHideComponent.IsHidden && !playerCandle.isActiveAndEnabled)
-			{
-				Vector2 direction = playerTransform.position - transform.position;
-				Vector2 dest = new Vector2(playerTransform.position.x, playerTransform.position.y) - marginToPlayer * direction.normalized;
-				
-				agent.SetDestination(dest);
-			}
-			else if (chasingPlayer && playerHideComponent.IsHidden)
+			else if (chasingPlayer && playerController.isHidden)
 			{
 				chasingPlayer = false;
 				agent.SetDestination(Route[currentTarget]);

@@ -9,7 +9,6 @@ namespace Player.UI
         public static SoundsMannager Instance;
         public AudioSource audioSource;
         private AudioClip[] audios; 
-        // Start is called before the first frame update
         void Awake()
         {
             Instance = this;

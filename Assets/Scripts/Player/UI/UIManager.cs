@@ -9,76 +9,9 @@ namespace UI
     {
         [Header("UI Settings")]
         [SerializeField] private AudioMixer audioMixer;
-        //[SerializeField] private GameObject GameMenuPanel;
         [SerializeField] private TMP_Dropdown resolutionDropdown;
         private Resolution[] resolutions;
-        /*
-        private bool PausedGameplay;
-        public void PauseGameplay()
-        {
-            PausedGameplay = true;
-            Time.timeScale = 0f;
-        }
 
-        
-
-        public void ToggleMenuPanel(InputAction.CallbackContext callbackContext)
-        {
-            if (!callbackContext.started) return;
-
-            if(GameMenuPanel != null && PausedGameplay==false)
-            {
-                Debug.Log("The game has been paused");
-                PauseGameplay();
-                GameMenuPanel.SetActive(!GameMenuPanel.activeSelf);
-                return;
-            }
-            
-            if(GameMenuPanel != null && PausedGameplay==true)
-            {
-                Debug.Log("The game has been reanuded");
-                ContinueGameplay();
-                GameMenuPanel.SetActive(!GameMenuPanel.activeSelf);
-                return;
-            }
-        }
-
-        public void ToggleInventoryPanel(InputAction.CallbackContext callbackContext)
-        {
-            if (!callbackContext.started) return;
-
-            if(InventoryPanel != null)
-            {
-                InventoryPanel.SetActive(!InventoryPanel.activeSelf);
-            }
-        }
-
-        public void ToggleMenuPanel()
-        {
-            if(GameMenuPanel != null && PausedGameplay==false)
-            {
-                Debug.Log("The game has been paused");
-                PauseGameplay();
-                GameMenuPanel.SetActive(!GameMenuPanel.activeSelf);
-                return;
-            }
-            
-            if(GameMenuPanel != null && PausedGameplay==true)
-            {
-                Debug.Log("The game has been reanuded");
-                ContinueGameplay();
-                GameMenuPanel.SetActive(!GameMenuPanel.activeSelf);
-                return;
-            }
-        }
-
-        public void ToggleInventoryPanel()
-        {
-            if(InventoryPanel != null)
-            {
-                InventoryPanel.SetActive(!InventoryPanel.activeSelf);
-            }
-        }*/
         public void ContinueGameplay()
         {
             Time.timeScale = 1f;

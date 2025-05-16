@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1380328454879276200}
   m_Layer: 0
   m_Name: Candle
-  m_TagString: Untagged
+  m_TagString: PlayerCandle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,9 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bfdf42a57ed1264183a1ecbaee0d701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 20
-  lightRadius: 6
-  noiseScale: 1.7
 --- !u!1 &1006676334697060320
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,10 +213,7 @@ GameObject:
   - component: {fileID: 7878229822017553429}
   - component: {fileID: 1716565121438796698}
   - component: {fileID: 6700661010485083721}
-  - component: {fileID: 9089639011436467520}
-  - component: {fileID: 3261795488133168609}
-  - component: {fileID: 2436404148563630022}
-  - component: {fileID: 1218598035029338813}
+  - component: {fileID: 653306634409302101}
   - component: {fileID: 485319634888726228}
   m_Layer: 0
   m_Name: Player
@@ -350,7 +344,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3261795488133168609}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InteractionManager, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 0
@@ -366,7 +360,7 @@ MonoBehaviour:
     m_ActionName: Player/HideInteraction[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1218598035029338813}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CandlePickup, Assembly-CSharp
         m_MethodName: SwitchLight
         m_Mode: 0
@@ -381,58 +375,19 @@ MonoBehaviour:
     m_ActionId: 1023d854-c6d5-4980-a34e-ef62c83c1359
     m_ActionName: Player/Candle[/Keyboard/f]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI.PanelUI, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-    m_ActionId: e7401c1d-f459-4664-a901-b4637b54184e
-    m_ActionName: Player/Options[/Keyboard/p]
+      m_Calls: []
+    m_ActionId: 60868d36-466e-44e8-95d1-baefe6af515e
+    m_ActionName: UI/Inventory[/Keyboard/i]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI.PanelUI, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 56a92a3d-4613-4e8e-b3ed-e89be60fe221
-    m_ActionName: Player/Inventory[/Keyboard/i]
+      m_Calls: []
+    m_ActionId: 840f28e6-434c-4c1c-8fff-afee228d7d61
+    m_ActionName: UI/Options[/Keyboard/p,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &9089639011436467520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006676334697060320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad1a283120281e4991d857e530bc4d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 165361697611080816}
-  candle: {fileID: 3750110559988306271}
-  speed: 5
---- !u!114 &3261795488133168609
+--- !u!114 &653306634409302101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,31 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b46aaec18b052043ae0619a3cedb5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2436404148563630022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006676334697060320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee9a77d0b08a9a47819136268942f1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1218598035029338813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006676334697060320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d612a8ce1c38e04ab18b987e9e4aa93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  candle: {fileID: 1380328454879276200}
 --- !u!114 &485319634888726228
 MonoBehaviour:
   m_ObjectHideFlags: 0
