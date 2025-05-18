@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2925986066562940500}
   - component: {fileID: 252606653631196230}
   - component: {fileID: 6073943151778304727}
+  - component: {fileID: 889420637349086863}
   m_Layer: 0
   m_Name: Closet
   m_TagString: Closet
@@ -208,7 +209,7 @@ MonoBehaviour:
   - {x: 0.49186254, y: 0.09759593, z: 0}
   m_ShapePathHash: -1768178927
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1546
+  m_InstanceId: -1346
   m_LocalBounds:
     m_Center: {x: -0.006250024, y: 0.55321074, z: 0}
     m_Extent: {x: 0.50041187, y: 0.4556148, z: 0}
@@ -272,6 +273,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a742fcc5448368441a92878363cdac1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &889420637349086863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914831198294113586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee9a77d0b08a9a47819136268942f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1553299896141141327
