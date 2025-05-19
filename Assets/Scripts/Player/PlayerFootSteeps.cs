@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Player.UI;
+using Audio;
+using System.Collections.Generic;
 
 namespace Player
 {
@@ -8,14 +9,20 @@ namespace Player
     {
         [Header("FX Sounds")]
         [SerializeField] private float footSteepDelay;
-        [SerializeField] private AudioClip[] audios;
+        [SerializeField] private List<AudioClip> audios;
+        private AudioController audioController;
         private float footSteepTimer;
         private Vector2 movement;
         private PlayerInput input;
 
+        void Awake()
+        {
+            audioController = GetComponent<AudioController>();
+            input = GetComponent<PlayerInput>();   
+        }
+
         void Start()
         {
-            input = GetComponent<PlayerInput>();
             footSteepTimer = 0f;
         }
 
@@ -30,7 +37,7 @@ namespace Player
                 if (footSteepTimer <= 0f)
                 {
                     Debug.Log("Step");
-                    AudioManager.Instance.PlayRandomSFX(audios);
+                    audioController.PlayRandomSFX(audios);
                     footSteepTimer = footSteepDelay;
                 }
             }

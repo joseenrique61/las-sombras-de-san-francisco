@@ -1,8 +1,7 @@
 using UnityEngine;
 using Inventory;
-using Player.UI;
+using Audio;
 using Interactions;
-using Player;
 
 namespace WorldElements
 {
@@ -16,6 +15,7 @@ namespace WorldElements
         private BoxCollider2D doorCollider;
         private InteractionAnimation anim;
         private InteractionObjectPrompt prompt;
+        private AudioController audioController;
 
         [Header("FX Sounds")]
         [SerializeField] private AudioClip openSound;
@@ -23,6 +23,7 @@ namespace WorldElements
         
         void Awake()
         {
+            audioController = GetComponent<AudioController>();
             prompt = GetComponent<InteractionObjectPrompt>();
             doorCollider = GetComponent<BoxCollider2D>();
             anim = GetComponent<InteractionAnimation>();
@@ -42,17 +43,17 @@ namespace WorldElements
 
             if (InventorySystem.Instance != null && InventorySystem.Instance.HasItem(requiredItemID))
             {
-                Debug.Log($"Abriendo puerta con {requiredItemID}.");
-                isOpen = true;
-                tryToOpen = false;
-
                 if (consumeItem)
                 {
                     InventorySystem.Instance.RemoveItemById(requiredItemID);
                 }
 
-                AudioManager.Instance.PlaySFX(openSound);
+                Debug.Log($"Abriendo puerta con {requiredItemID}.");
+                isOpen = true;
+                tryToOpen = false;
+                audioController.PlaySFX(openSound);
                 UpdateDoorState();
+                
                 anim?.PlayOnceAnimation();
             }
             else
@@ -60,7 +61,7 @@ namespace WorldElements
                 Debug.Log($"Falta el objeto: {requiredItemID}. Puerta bloqueada.");
                 isOpen = false;
                 tryToOpen = true;
-                AudioManager.Instance.PlaySFX(lockedSound);
+                audioController.PlaySFX(lockedSound);
                 UpdateDoorState();
             }
         }

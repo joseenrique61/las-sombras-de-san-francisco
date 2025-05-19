@@ -3,18 +3,22 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
 using Player.UI;
+using Audio;
 using Player;
 
 namespace Enemy
 {
 	public class EnemyController : MonoBehaviour
 	{
-		[Header("FX Sounds")]
-		[SerializeField] private AudioClip chasingPlayerSound;
-		[SerializeField] private AudioClip killingPlayerSound;
+		[Header("Settings")]
 		[SerializeField] private float visionRange = 5f;
 		[SerializeField, Range(0f, 1f)] private float marginToPlayer = 0.7f;
 		[SerializeField] private List<Vector2> Route;
+
+		[Header("Sounds FX")]
+		[SerializeField] private AudioClip killingPlayerSound;
+		[SerializeField] private List<AudioClip> aditionalEnemySounds;
+		private AudioController audioController;
 		private GameObject player;
 		private LevelLoader levelLoader;
 		private Light2D playerCandle;
@@ -26,20 +30,22 @@ namespace Enemy
 		private NavMeshAgent agent;
 		private void Awake()
 		{
+			audioController = GetComponent<AudioController>();
+
 			agent = GetComponent<NavMeshAgent>();
 			agent.updateRotation = false;
 			agent.updateUpAxis = false;
+
+			enemyAnimator = transform.Find("EnemyVisual").GetComponent<Animator>();
 		}
 		void Start()
 		{
 			player = GameObject.FindWithTag("Player");
 			playerCandle = GameObject.FindWithTag("PlayerCandle").GetComponent<Light2D>();
+			levelLoader = GameObject.Find("ElementsUI").GetComponent<LevelLoader>();
+
 			playerTransform = player.GetComponent<Transform>();
 			playerController = player.GetComponent<PlayerController>();
-
-			enemyAnimator = transform.Find("EnemyVisual").GetComponent<Animator>();
-			
-			levelLoader = GameObject.Find("ElementsUI").GetComponent<LevelLoader>();
 
 			agent.SetDestination(Route[currentTarget]);
 		}
@@ -52,8 +58,13 @@ namespace Enemy
 			{
 				Vector2 direction = playerTransform.position - transform.position;
 				Vector2 dest = new Vector2(playerTransform.position.x, playerTransform.position.y) - marginToPlayer * (playerCandle.gameObject.activeSelf ? playerCandle.pointLightOuterRadius : 0.01f) * direction.normalized;
-				
-				AudioManager.Instance.PlaySFX(chasingPlayerSound);
+
+				Debug.Log("Outer Radius: "+ playerCandle.pointLightOuterRadius + visionRange);
+				Debug.Log("Direction sqrMagnitude:"+ direction.sqrMagnitude);
+			
+				if (direction.sqrMagnitude - visionRange == playerCandle.pointLightOuterRadius)
+					audioController.PlayRandomSFX(aditionalEnemySounds);
+
 				agent.SetDestination(dest);			
 			}
 			else if (chasingPlayer && playerController.isHidden)
@@ -94,7 +105,7 @@ namespace Enemy
 		{
 			if (collision.gameObject.CompareTag("Player"))
 			{
-				AudioManager.Instance.PlaySFX(killingPlayerSound);
+				audioController.PlaySFX(killingPlayerSound);
 				levelLoader.RestartLevel();
 			}
 		}

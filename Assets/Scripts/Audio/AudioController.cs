@@ -1,31 +1,32 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-namespace Player.UI
+namespace Audio
 {
-    public class AudioManager : MonoBehaviour
+    public class AudioController : MonoBehaviour
     {
-        public static AudioManager Instance;
         private AudioSource audioSource;
-        private AudioClip[] audios; 
+        private List<AudioClip> audios;
         void Awake()
         {
-            Instance = this;
             audioSource = GetComponent<AudioSource>();
+
+            if (audioSource == null)
+                Debug.LogError($"Hace falta un componente AudioSource en este gameobject: {gameObject.name}");
         }
 
         public void PlaySFX(AudioClip audio)
         {
             audioSource.PlayOneShot(audio);
         }
-
-        public void PlayRandomSFX(AudioClip[] clips)
+        
+        public void PlayRandomSFX(List<AudioClip> clips)
         {
             audios = clips;
-            if (audios.Length > 0)
+            if (audios.Any())
             {
-                int index = Random.Range(0,audios.Length);
+                int index = Random.Range(0,audios.Count-1);
                 audioSource.PlayOneShot(audios[index]);
             }
         }

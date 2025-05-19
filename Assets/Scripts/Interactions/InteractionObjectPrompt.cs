@@ -10,9 +10,7 @@ namespace Interactions
         public void Awake()
         {
             if (InteractionPrompts == null)
-            {
-                Debug.LogError("Hace falta agregar uno o más prompts.");
-            }
+                Debug.LogError($"Hace falta agregar uno o más prompts en este gameobject: {gameObject.name}");      
         }
 
         public void ShowPrompt()
