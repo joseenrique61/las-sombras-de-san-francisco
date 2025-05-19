@@ -220,9 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710de069f968b934297b14da625571c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemy: {fileID: 3012382549637425271}
   visionRange: 5
   marginToPlayer: 0.5
   Route:
-  - {x: -10.75, y: -1.05}
+  - {x: 4.27, y: -17}
+  - {x: -12.46097, y: -17.31168}

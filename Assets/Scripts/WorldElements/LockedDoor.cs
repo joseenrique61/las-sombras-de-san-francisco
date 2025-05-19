@@ -11,6 +11,7 @@ namespace WorldElements
         [SerializeField] private string requiredItemID = "UniqueItemID";
         private bool consumeItem = true;
         public bool isOpen = false;
+        public bool tryToOpen = false;
         private GameObject doorVisual;
         private BoxCollider2D doorCollider;
         private InteractionAnimation anim;
@@ -47,28 +48,34 @@ namespace WorldElements
             {
                 Debug.Log($"Abriendo puerta con {requiredItemID}.");
                 isOpen = true;
+                tryToOpen = false;
 
                 if (consumeItem)
                 {
                     InventorySystem.Instance.RemoveItemById(requiredItemID);
                 }
 
-                // Aquí podrías también notificar a InteractionManager que la interacción fue exitosa
                 soundsMannager.PlaySFX(openSound);
                 UpdateDoorState();
-                anim?.PlayOnceAnimation(); 
+                anim?.PlayOnceAnimation();
             }
             else
             {
                 Debug.Log($"Falta el objeto: {requiredItemID}. Puerta bloqueada.");
+                isOpen = false;
+                tryToOpen = true;
                 soundsMannager.PlaySFX(lockedSound);
+                UpdateDoorState();
             }
         }
 
         void UpdateDoorState()
         {
             if (doorVisual != null) doorVisual.SetActive(isOpen);
-            if (doorCollider != null) doorCollider.enabled = !isOpen; 
+            if (doorCollider != null) doorCollider.enabled = !isOpen;
+
+            if (!isOpen && tryToOpen) prompt?.ShowPrompt("MessagePrompt");
+            if (isOpen && !tryToOpen) prompt?.HidePrompt("MessagePrompt");
         }
 
         public void Interact(GameObject player)

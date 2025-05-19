@@ -34,7 +34,8 @@ namespace Enemy
 			playerTransform = player.GetComponent<Transform>();
 			playerController = player.GetComponent<PlayerController>();
 
-			enemyAnimator = GetComponent<Animator>();
+			enemyAnimator = transform.Find("EnemyVisual").GetComponent<Animator>();
+			
 			levelLoader = GameObject.Find("ElementsUI").GetComponent<LevelLoader>();
 
 			agent.SetDestination(Route[currentTarget]);

@@ -179,7 +179,7 @@ MonoBehaviour:
   - {x: -0.43884993, y: 0.00329566, z: 0}
   m_ShapePathHash: -1366232779
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1318
+  m_InstanceId: -2816
   m_LocalBounds:
     m_Center: {x: 0.0011780262, y: 0.2436539, z: 0}
     m_Extent: {x: 0.48440576, y: 0.24125111, z: 0}
@@ -340,6 +340,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3250366131839621354, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8231595181666738139}
+    - targetCorrespondingSourceObject: {fileID: 3250366131839621354, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 201824332809579709}
   m_SourcePrefab: {fileID: 100100000, guid: 6b4ce229a9fd8e3448c752323afb6716, type: 3}
 --- !u!1 &5607149568430551368 stripped
 GameObject:
@@ -358,7 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b84dbe5b45268e4ca5417cfd4484520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionPrompt: {fileID: 7075047331736202079}
+  InteractionPrompts:
+  - {fileID: 7075047331736202079}
 --- !u!95 &850648255309732984
 Animator:
   serializedVersion: 5
@@ -390,6 +394,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a742fcc5448368441a92878363cdac1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &201824332809579709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5607149568430551368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfdf42a57ed1264183a1ecbaee0d701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7075047331736202079 stripped
