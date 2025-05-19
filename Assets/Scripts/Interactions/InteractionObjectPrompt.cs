@@ -7,7 +7,6 @@ namespace Interactions
     public class InteractionObjectPrompt : MonoBehaviour
     {
         public List<GameObject> InteractionPrompts;
-
         public void Awake()
         {
             if (InteractionPrompts == null)

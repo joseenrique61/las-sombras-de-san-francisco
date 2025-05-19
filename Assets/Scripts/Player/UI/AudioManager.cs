@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Player.UI
 {
-    public class SoundsMannager : MonoBehaviour
+    public class AudioManager : MonoBehaviour
     {
-        public static SoundsMannager Instance;
-        public AudioSource audioSource;
+        public static AudioManager Instance;
+        private AudioSource audioSource;
         private AudioClip[] audios; 
         void Awake()
         {

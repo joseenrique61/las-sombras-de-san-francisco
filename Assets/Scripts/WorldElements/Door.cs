@@ -6,23 +6,21 @@ using Player;
 
 namespace WorldElements
 {
-    public class LockedDoor : MonoBehaviour, IInteractable
+    public class Door : MonoBehaviour, IInteractable
     {
+        [Header("Basic Door Configuration")]
         [SerializeField] private string requiredItemID = "UniqueItemID";
         private bool consumeItem = true;
         public bool isOpen = false;
         public bool tryToOpen = false;
-        private GameObject doorVisual;
         private BoxCollider2D doorCollider;
         private InteractionAnimation anim;
         private InteractionObjectPrompt prompt;
 
         [Header("FX Sounds")]
         [SerializeField] private AudioClip openSound;
-        [SerializeField] private AudioClip lockedSound;      // Sonido si está bloqueada
+        [SerializeField] private AudioClip lockedSound;
         
-        public SoundsMannager soundsMannager;
-
         void Awake()
         {
             prompt = GetComponent<InteractionObjectPrompt>();
@@ -33,8 +31,6 @@ namespace WorldElements
         void Start()
         {
             UpdateDoorState();
-
-            doorVisual = gameObject;
         }
 
         public void AttemptOpen()
@@ -55,7 +51,7 @@ namespace WorldElements
                     InventorySystem.Instance.RemoveItemById(requiredItemID);
                 }
 
-                soundsMannager.PlaySFX(openSound);
+                AudioManager.Instance.PlaySFX(openSound);
                 UpdateDoorState();
                 anim?.PlayOnceAnimation();
             }
@@ -64,14 +60,13 @@ namespace WorldElements
                 Debug.Log($"Falta el objeto: {requiredItemID}. Puerta bloqueada.");
                 isOpen = false;
                 tryToOpen = true;
-                soundsMannager.PlaySFX(lockedSound);
+                AudioManager.Instance.PlaySFX(lockedSound);
                 UpdateDoorState();
             }
         }
 
         void UpdateDoorState()
         {
-            if (doorVisual != null) doorVisual.SetActive(isOpen);
             if (doorCollider != null) doorCollider.enabled = !isOpen;
 
             if (!isOpen && tryToOpen) prompt?.ShowPrompt("MessagePrompt");
@@ -88,12 +83,12 @@ namespace WorldElements
 
         public void OnEnterRange(GameObject player)
         {
-            
+            if (!isOpen && tryToOpen) prompt?.ShowPrompt("MessagePrompt");
         }
 
         public void OnExitRange(GameObject player)
         {
-
+            if (!isOpen && tryToOpen) prompt?.HidePrompt("MessagePrompt");
         }
     }
 }

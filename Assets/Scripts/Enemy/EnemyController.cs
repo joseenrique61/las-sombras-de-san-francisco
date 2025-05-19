@@ -7,8 +7,11 @@ using Player;
 
 namespace Enemy
 {
-	public class EnemyMovement : MonoBehaviour
+	public class EnemyController : MonoBehaviour
 	{
+		[Header("FX Sounds")]
+		[SerializeField] private AudioClip chasingPlayerSound;
+		[SerializeField] private AudioClip killingPlayerSound;
 		[SerializeField] private float visionRange = 5f;
 		[SerializeField, Range(0f, 1f)] private float marginToPlayer = 0.7f;
 		[SerializeField] private List<Vector2> Route;
@@ -50,6 +53,7 @@ namespace Enemy
 				Vector2 direction = playerTransform.position - transform.position;
 				Vector2 dest = new Vector2(playerTransform.position.x, playerTransform.position.y) - marginToPlayer * (playerCandle.gameObject.activeSelf ? playerCandle.pointLightOuterRadius : 0.01f) * direction.normalized;
 				
+				AudioManager.Instance.PlaySFX(chasingPlayerSound);
 				agent.SetDestination(dest);			
 			}
 			else if (chasingPlayer && playerController.isHidden)
@@ -90,6 +94,7 @@ namespace Enemy
 		{
 			if (collision.gameObject.CompareTag("Player"))
 			{
+				AudioManager.Instance.PlaySFX(killingPlayerSound);
 				levelLoader.RestartLevel();
 			}
 		}

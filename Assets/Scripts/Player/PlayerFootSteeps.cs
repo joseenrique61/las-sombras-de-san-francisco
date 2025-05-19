@@ -6,7 +6,7 @@ namespace Player
 {
     public class PlayerFootSteeps : MonoBehaviour
     {
-        [Header("Audio Configuration")]
+        [Header("FX Sounds")]
         [SerializeField] private float footSteepDelay;
         [SerializeField] private AudioClip[] audios;
         private float footSteepTimer;
@@ -30,7 +30,7 @@ namespace Player
                 if (footSteepTimer <= 0f)
                 {
                     Debug.Log("Step");
-                    SoundsMannager.Instance.PlayRandomSFX(audios);
+                    AudioManager.Instance.PlayRandomSFX(audios);
                     footSteepTimer = footSteepDelay;
                 }
             }
