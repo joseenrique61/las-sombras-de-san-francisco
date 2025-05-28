@@ -134,6 +134,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Dialogue",
+                    "type": "Button",
+                    "id": "b6db8f65-76dc-427d-a428-02192641d51c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -167,6 +176,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Options",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe5c64bb-abd3-4dc6-8d72-3665fa1161b7",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d2c6032-7423-4d65-807a-d04677c5ab04",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

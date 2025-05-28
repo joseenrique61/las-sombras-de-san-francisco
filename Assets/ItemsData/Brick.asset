@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d1612ebca4ed347a0228bf1964b81e, type: 3}
+  m_Name: Brick
+  m_EditorClassIdentifier: 
+  itemID: Brick
+  displayName: Brick
+  description: This item it's useful to salve your soul
+  icon: {fileID: 889152400, guid: 43fac888fd5ff1f47ba32821324623b9, type: 3}
+  stackable: 0
+  usable: 0
+  keyItem: 1

@@ -29,7 +29,6 @@ namespace Interactions
             {
                 if (prompt.name == name)
                 {
-                    Debug.Log($"Activando prompt {prompt.name}");
                     prompt.SetActive(true);
                     break;
                 }

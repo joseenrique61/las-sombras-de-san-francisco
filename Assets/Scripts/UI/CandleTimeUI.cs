@@ -1,27 +1,28 @@
+using Ilumination;
 using UnityEngine;
 
-namespace Player.UI
+namespace UI
 {
 	public class CandleTimeUI : MonoBehaviour
 	{
 		[SerializeField] private float TopY;
 		[SerializeField] private float BottomY;
 
-		private PlayerController playerController;
+		private LightPoint lightPoint;
 		private RectTransform RectTransform;
 
 		private void Start()
 		{
-			playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+			lightPoint = GameObject.FindWithTag("Light").GetComponent<LightPoint>();
 			
-			if (playerController == null) Debug.LogError("Hace falta el PlayerController en Player");
+			if (lightPoint == null) Debug.LogError("Hace falta el PlayerController en Player");
 
 			RectTransform = GetComponent<RectTransform>();
 		}
 
 		void Update()
 		{
-			float t = Mathf.InverseLerp(0, playerController.lightDuration, playerController.remainingTimeLight);
+			float t = Mathf.InverseLerp(0, lightPoint.lightDuration, lightPoint.remainingTimeLight);
 			float output = Mathf.Lerp(BottomY, TopY, t);
 
 			RectTransform.anchoredPosition = new Vector2(transform.position.x, output);

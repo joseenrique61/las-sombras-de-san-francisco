@@ -2,13 +2,15 @@ using UnityEngine;
 using Inventory;
 using Audio;
 using Interactions;
+using UnityEngine.UI;
 
 namespace WorldElements
 {
     public class Door : MonoBehaviour, IInteractable
     {
         [Header("Basic Door Configuration")]
-        [SerializeField] private string requiredItemID = "UniqueItemID";
+        [SerializeField] private ItemData requiredItem;
+        [SerializeField] private Image imageItem;
         private bool consumeItem = true;
         public bool isOpen = false;
         public bool tryToOpen = false;
@@ -41,28 +43,30 @@ namespace WorldElements
                 return;
             }
 
-            if (InventorySystem.Instance != null && InventorySystem.Instance.HasItem(requiredItemID))
+            if (InventorySystem.Instance != null && InventorySystem.Instance.HasItem(requiredItem.itemID))
             {
                 if (consumeItem)
                 {
-                    InventorySystem.Instance.RemoveItemById(requiredItemID);
+                    InventorySystem.Instance.RemoveItemById(requiredItem.itemID);
                 }
 
-                Debug.Log($"Abriendo puerta con {requiredItemID}.");
+                Debug.Log($"Abriendo puerta con {requiredItem.itemID}.");
                 isOpen = true;
                 tryToOpen = false;
                 audioController.PlaySFX(openSound);
                 UpdateDoorState();
-                
+
                 anim?.PlayOnceAnimation();
             }
             else
             {
-                Debug.Log($"Falta el objeto: {requiredItemID}. Puerta bloqueada.");
+                Debug.Log($"Falta el objeto: {requiredItem.itemID}. Puerta bloqueada.");
                 isOpen = false;
                 tryToOpen = true;
                 audioController.PlaySFX(lockedSound);
                 UpdateDoorState();
+
+                imageItem.sprite = requiredItem.icon;
             }
         }
 

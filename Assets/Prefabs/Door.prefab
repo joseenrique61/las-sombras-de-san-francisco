@@ -765,7 +765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0869e95f2705de3498f6d103087f557a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItemID: GrayKey001
+  requiredItem: {fileID: 0}
+  imageItem: {fileID: 7338898447143371356}
   isOpen: 0
   tryToOpen: 0
   openSound: {fileID: 8300000, guid: 2932e2b48bb6f494db8bad3b745e228d, type: 3}

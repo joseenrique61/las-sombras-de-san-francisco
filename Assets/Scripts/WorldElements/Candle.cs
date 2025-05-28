@@ -1,6 +1,7 @@
 using UnityEngine;
 using Interactions;
 using Player;
+using Ilumination;
 
 namespace WorldElements
 {
@@ -20,16 +21,16 @@ namespace WorldElements
 			this.candleToPickup = candleToPickup;
 		}
 
-		public void PickupCandle(PlayerController playerController)
+		public void PickupCandle(LightPoint lightPoint)
 		{
-			playerController.RestartCandleLight();
+			lightPoint.RestartCandleLight();
 			Destroy(candleToPickup);
 		}
 
 		public void Interact(GameObject interactor)
 		{
 			PlayerController playerController = interactor.GetComponent<PlayerController>();
-			PickupCandle(playerController);
+			PickupCandle(playerController.lightPoint);
 		}
 
 		public void ShowPrompt() => prompt?.ShowPrompt();

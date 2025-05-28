@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
-using Player.UI;
+using UI;
 using Audio;
 using Player;
 
@@ -41,7 +41,7 @@ namespace Enemy
 		void Start()
 		{
 			player = GameObject.FindWithTag("Player");
-			playerCandle = GameObject.FindWithTag("PlayerCandle").GetComponent<Light2D>();
+			playerCandle = GameObject.FindWithTag("Light").GetComponent<Light2D>();
 			levelLoader = GameObject.Find("ElementsUI").GetComponent<LevelLoader>();
 
 			playerTransform = player.GetComponent<Transform>();

@@ -29,9 +29,10 @@ namespace Interactions
             }
         }
 
-        public void Interact(InputAction.CallbackContext context)
+        public void Interact(InputAction.CallbackContext callbackContext)
         {
-            if (!context.started) return;
+            if (!callbackContext.started)
+                return;
 
             if (currentInteractable != null)
             {

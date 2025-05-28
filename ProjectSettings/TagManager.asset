@@ -9,12 +9,12 @@ TagManager:
   - WorldItem
   - LockedDoor
   - PickupItem
-  - PlayerCandle
+  - Light
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
   - 
