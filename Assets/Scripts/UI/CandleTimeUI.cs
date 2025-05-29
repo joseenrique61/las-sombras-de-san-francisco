@@ -1,4 +1,5 @@
 using Ilumination;
+using System;
 using UnityEngine;
 
 namespace UI
@@ -25,7 +26,7 @@ namespace UI
 			float t = Mathf.InverseLerp(0, lightPoint.lightDuration, lightPoint.remainingTimeLight);
 			float output = Mathf.Lerp(BottomY, TopY, t);
 
-			RectTransform.anchoredPosition = new Vector2(transform.position.x, output);
+			RectTransform.anchoredPosition = new Vector2(RectTransform.anchoredPosition.x, output);
 		}
 	}
 }

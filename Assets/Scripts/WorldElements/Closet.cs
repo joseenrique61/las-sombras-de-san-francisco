@@ -37,7 +37,7 @@ namespace WorldElements
 
             playerController = player.GetComponent<PlayerController>();
             playerVisuals = player.transform.Find("PlayerVisuals")?.gameObject;
-            playerCandle = player.transform.Find("Candle")?.gameObject;
+            playerCandle = player.transform.Find("LightPoint")?.gameObject;
             playerInput = player.GetComponent<PlayerInput>();
 
             if (closetCollider == null)

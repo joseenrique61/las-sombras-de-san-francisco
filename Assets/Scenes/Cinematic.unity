@@ -579,7 +579,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1328431209}
   dialogueLines:
   - "Enga\xF1\xE9 al demonio.\r\r\n"
-  - "Pero no escap\xE9 de m\xED, la sangre me persigue, la muerte esta encima.\r\r\n"
+  - "Pero no escap\xE9 de m\xED, la sangre me persigue, la muerte est\xE1 encima.\r\r\n"
   - "La piedra que falta... me garantizar\xE1 la vida. Los demonios, acech\xE1ndome,
     \xBFlos escuchas? Yo los escucho, debo escapar.\r\r\n"
   activeOnStart: 1
